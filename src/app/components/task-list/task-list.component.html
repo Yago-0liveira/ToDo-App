@@ -1,0 +1,26 @@
+<mat-card>
+  <h2>Lista de Tarefas</h2>
+  <mat-list>
+    <mat-list-item *ngFor="let task of tasks$ | async" [class.completed]="task.completed">
+      <div class="mat-list-item-content">
+        <mat-icon matListIcon>{{ task.completed ? 'check_circle' : 'radio_button_unchecked' }}</mat-icon>
+        <h4 matLine>{{ task.title }}</h4>
+        <span class="spacer"></span>
+        <div class="action-buttons">
+          <button mat-icon-button color="primary" (click)="markAsCompleted(task)" aria-label="Marcar como Feito">
+            <mat-icon>done</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteTask(task)" aria-label="Excluir Tarefa">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-list-item>
+  </mat-list>
+</mat-card>
+
+
+
+
+
+
